@@ -4,6 +4,8 @@ Neovim plugin to extract fully qualified class names (FQCN) from Ruby classes an
 
 Provides the `:CopyRubyFQCN` command to copy to clipboard, as well as the `get_fqcn()` API for use by other plugins.
 
+*TODO: demo gif*
+
 ## Requirements
 
 - Neovim 0.10+
@@ -31,40 +33,25 @@ With a Ruby file open, run the `:CopyRubyFQCN` command.
 
 Based on the cursor position, the FQCN of the current class/module will be copied to the clipboard.
 
-### API
-
-An API is available for use from other plugins or configurations:
-
-```lua
-local ruby_fqcn = require("ruby-fqcn")
-
--- Get FQCN (without copying to clipboard)
-local fqcn = ruby_fqcn.get_fqcn()
-
--- Get FQCN and copy to clipboard
-ruby_fqcn.copy_fqcn()
-```
-
 ## Example
 
 ```ruby
 module Foo
   module Bar
     class Baz
-      # If cursor is here
-      # => "Foo::Bar::Baz" is copied
+      # If cursor is here => "Foo::Bar::Baz" is copied
     end
-    # If cursor is here
-    # => "Foo::Bar" is copied
+    # If cursor is here => "Foo::Bar" is copied
   end
 
-  # If cursor is here
-  # => "Foo" is copied
+  # If cursor is here => "Foo" is copied
 
-  class Hoge
+  Qux = Struct.new(:x, :y) do
     # If cursor is here
-    # => "Foo::Hoge" is copied
+    # => "Foo::Customer" is copied
   end
+
+  Quux = Data.define(:x, :y) # If cursor is here => "Foo::Quux" is copied
 end
 ```
 
@@ -75,7 +62,3 @@ You can set up a keymapping as you like:
 ```lua
 vim.keymap.set("n", "<leader>rc", "<cmd>CopyRubyFQCN<cr>", { desc = "Copy Ruby FQCN" })
 ```
-
-## License
-
-MIT
