@@ -1,0 +1,11 @@
+---@meta
+
+---Class representing a Tree-sitter node
+---@class TSNode
+---@field type fun(self: TSNode): string Get the node type
+---@field field fun(self: TSNode, name: string): TSNode[] Get child nodes for the specified field
+---@field parent fun(self: TSNode): TSNode|nil Get the parent node
+---@field range fun(self: TSNode): number, number, number, number Get the node range (start_row, start_col, end_row, end_col)
+---@field named_descendant_for_range fun(self: TSNode, start_row: number, start_col: number, end_row: number, end_col: number): TSNode|nil Get named descendant node within the specified range
+---@field named_child_count fun(self: TSNode): number Get the count of named child nodes
+---@field named_child fun(self: TSNode, index: number): TSNode|nil Get named child node at the specified index (0-indexed)
