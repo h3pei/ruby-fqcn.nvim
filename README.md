@@ -53,5 +53,6 @@ end
 You can set up a keymapping as you like:
 
 ```lua
-vim.keymap.set("n", "<leader>rcp", "<cmd>CopyRubyFQCN<cr>", { desc = "Copy Ruby FQCN" })
+-- example:
+vim.keymap.set("n", "<leader>cf", "<cmd>CopyRubyFQCN<cr>", { desc = "Copy Ruby FQCN" })
 ```
