@@ -4,7 +4,7 @@ Neovim plugin to extract fully qualified class names (FQCN) from Ruby classes an
 
 Provides the `:CopyRubyFQCN` command to copy to clipboard, as well as the `get_fqcn()` API for use by other plugins.
 
-*TODO: demo gif*
+![ruby-fqcn.nvim demo](https://github.com/user-attachments/assets/781cd86b-7883-442d-b47b-82ab79c910fc)
 
 ## Requirements
 
