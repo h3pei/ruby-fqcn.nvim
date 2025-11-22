@@ -10,7 +10,7 @@ end
 --- Display INFO level notification
 ---@param message string Notification message
 function M.notify_info(message)
-  notify("[info] " .. message, vim.log.levels.INFO)
+  notify(message, vim.log.levels.INFO)
 end
 
 --- Display WARN level notification
