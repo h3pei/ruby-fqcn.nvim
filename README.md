@@ -9,31 +9,24 @@ Provides the `:CopyRubyFQCN` command to copy to clipboard, as well as the `get_f
 ## Requirements
 
 - Neovim 0.10+
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with Ruby parser
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with Ruby parser (Run `:TSInstall ruby`)
 
 ## Installation
 
-### lazy.nvim
-
 ```lua
+-- lazy.nvim
 {
-  "your-username/ruby-fqcn.nvim",
+  "h3pei/ruby-fqcn.nvim",
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   ft = "ruby",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-  },
 }
 ```
 
 ## Usage
 
-### Command
-
-With a Ruby file open, run the `:CopyRubyFQCN` command.
+With a Ruby file open, run the `:CopyRubyFQCN` command. that's it!
 
 Based on the cursor position, the FQCN of the current class/module will be copied to the clipboard.
-
-## Example
 
 ```ruby
 module Foo
@@ -60,5 +53,5 @@ end
 You can set up a keymapping as you like:
 
 ```lua
-vim.keymap.set("n", "<leader>rc", "<cmd>CopyRubyFQCN<cr>", { desc = "Copy Ruby FQCN" })
+vim.keymap.set("n", "<leader>rcp", "<cmd>CopyRubyFQCN<cr>", { desc = "Copy Ruby FQCN" })
 ```
