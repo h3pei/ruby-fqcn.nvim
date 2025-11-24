@@ -8,7 +8,7 @@ describe("ruby-fqcn", function()
   before_each(function()
     -- Clear clipboard
     vim.fn.setreg("+", "")
-    vim.fn.setreg("\"", "")
+    vim.fn.setreg('"', "")
   end)
 
   after_each(function()
@@ -129,13 +129,13 @@ describe("ruby-fqcn", function()
       assert.are.equal("Foo::Bar", clipboard)
     end)
 
-    it("should copy to both + and \" registers", function()
+    it('should copy to both + and " registers', function()
       bufnr = helpers.setup_ruby_buffer(fixtures.simple_class, { 2, 0 })
 
       ruby_fqcn.copy_fqcn()
 
       assert.are.equal("Foo", vim.fn.getreg("+"))
-      assert.are.equal("Foo", vim.fn.getreg("\""))
+      assert.are.equal("Foo", vim.fn.getreg('"'))
     end)
 
     it("should not copy when outside class/module", function()

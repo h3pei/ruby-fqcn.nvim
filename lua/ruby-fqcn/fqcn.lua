@@ -156,7 +156,7 @@ function M.copy_fqcn()
 
   -- Copy to clipboard
   vim.fn.setreg("+", fqcn)
-  vim.fn.setreg("\"", fqcn)
+  vim.fn.setreg('"', fqcn)
 
   utils.notify_info("Copied: " .. fqcn)
 end
